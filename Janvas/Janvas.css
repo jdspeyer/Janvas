@@ -1,0 +1,9 @@
+.janvas-style-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.janvas-style-hidden{
+    display: none;
+}
