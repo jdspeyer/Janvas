@@ -2,12 +2,13 @@ let layers = []
 
 export class JCanvasManager {
     constructor(id){
-        const CANVAS_WIDTH = 640
-        const CANVAS_HEIGHT = 360
+        const janvasDiv = document.getElementById(id)
+        
+        const CANVAS_WIDTH = janvasDiv.getAttribute('width')
+        const CANVAS_HEIGHT = janvasDiv.getAttribute('height')
         
         this.layers = []
 
-        const janvasDiv = document.getElementById(id)
         const layerTotal = Math.floor(janvasDiv.getAttribute('layers'))
 
         for(let i = 0; i < layerTotal; i++){
@@ -25,10 +26,18 @@ export class JCanvasManager {
         }
     }
 
-    draw(asset, layer, x, y, frame){
-        if(frame == undefined){
-            frame = 0
-        }
+    /**
+     * draws an image onto the frame
+     * @param {object} asset asset object  (SHEET, STATIC)
+     * @param {number} layer layer that the asset should be drawn onto
+     * @param {number} x x position of the asset
+     * @param {number} y y position of the asset
+     * @param {number} dx x position on the sheet (SHEET ONLY)
+     * @param {number} dy y position on the sheet (SHEET ONLY)
+     */
+    draw(asset, layer, x, y, dx, dy){
+        dx = dx == undefined ? 0 : dx
+        dy = dy == undefined ? 0 : dy
 
         if(layer > this.layers.length-1){
             throw `No such layer exists.`
@@ -40,7 +49,7 @@ export class JCanvasManager {
         const drawContext = this.layers[layer][1]
         
         if(asset.type == 'SHEET'){
-            drawContext.drawImage(asset.element, asset.frameWidth*frame, 0, asset.frameWidth, asset.frameHeight, x, y, asset.frameWidth, asset.frameHeight)
+            drawContext.drawImage(asset.element, dx, dy, asset.frameWidth, asset.frameHeight, x, y, asset.frameWidth, asset.frameHeight)
         }else{
             drawContext.drawImage(asset.element, x, y)
         }

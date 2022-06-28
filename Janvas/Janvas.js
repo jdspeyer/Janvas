@@ -16,11 +16,11 @@ import { JAssetManager } from './Core/AssetManager.js'
 import { Asset } from './Objects/Asset.js'
 
 import { Character } from './Objects/Character.js'
-import { Stance } from './Objects/Stance.js'
+import { Item } from './Objects/Item.js'
 import { Animation } from './Objects/Animation.js'
 
 // Class Exports
-export { Asset, Character, Stance, Animation }
+export { Asset, Character, Animation, Item}
 
 // Styles
 const STYLE_SHEET = document.createElement('link')

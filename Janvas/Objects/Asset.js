@@ -91,6 +91,10 @@ export class Asset {
         })
     }
     
+    /**
+     * updates the width and height of the element to be the loaded width.
+     * called if no default width or height is provided.
+     */
     #updateDimensions(){
         this.width = this.element.assetWidth
         this.height = this.element.assetHeight
