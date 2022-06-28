@@ -112,6 +112,20 @@ Each update the changed features will be reflected here. This will be moved to t
 - [x] Modules load in automatically when the Janvas.js is added to the webpage (script tag)
 - [ ] Animations were started. Not completed. Issues with deciding what prototypes should be the ones writing to the canvas(s).
 
+### indev0.2 (June 27, 2022)
+It has been a few days, but this update expands greatly on the sprite sheet capabilities of Janvas.
+- [x] Modular character can hold various items in test script (Script.js located in Games folder)
+- [x] Character states are animated. 
+    - [x] Idle animation (character.idle())
+    - [x] Attack animation (character.attack())
+    - [x] Damage animation (character.damage())
+    - [x] Evade animation (character.evade())
+    - [x] Block animation (character.block()) NOTE: Test scene does not include weapon with this animation. Was not included in the asset pack being used.
+    - [x] Walk animation (character.moveto(x))
+- [x] Pixel density of the WebGL canvas can now adjusted in the HTML Dom using the "height" and "width" attributes.
+- [x] Commented older functions so that future development would be easier.
+- [x] Weapons can change the attack animations of the character.
+
 See the [open issues](https://github.com/jdspeyer/Janvas/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
